@@ -23,14 +23,14 @@ CreateThread(function()
     for k, v in pairs(Config.Bar) do
         local BreakZone = BoxZone:Create(vector4(vector4(v.zones.x, v.zones.y, v.zones.z, v.zones.w)), Config.Bar[k].length, Config.Bar[k].width, {
             name= Config.Bar[k].label,
-			debugPoly = Config.DebugPolyzone,
+	    debugPoly = Config.DebugPolyzone,
             heading = v.zones.w,
             minZ = v.zones.z - 2,
             maxZ = v.zones.z + 2, 
         })
 
         BreakZone:onPlayerInOut(function(isPointInside)
-			if isPointInside then
+	    if isPointInside then
                 inZone = Config.Bar[k].label
                 if inZone ~= 0 then
                     StressCheck()
@@ -40,7 +40,7 @@ CreateThread(function()
                 inZone = 0
                 stressed = false
             end
-		end)
+	end)
     end
 end)
 
